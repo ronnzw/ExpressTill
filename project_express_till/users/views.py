@@ -5,6 +5,9 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
 
+import cv2
+from pyzbar.pyzbar import decode
+
 User = get_user_model()
 
 
@@ -46,3 +49,23 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 
 user_redirect_view = UserRedirectView.as_view()
+
+
+
+## This part doesn't belong here
+
+class CaptureBarcode():
+    def __init__(self):
+        self.cap = cv2.VideoCapture(0)
+        self.cap.set(3, 640)
+        self.cap.set(4,480)
+        self.success, self.frame = cap.read()
+        return self.frame
+
+    def get_frame(self.theframe):
+
+        for code in self.theframe:
+            
+
+
+    
