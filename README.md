@@ -47,4 +47,4 @@ Moved to [Live reloading and SASS compilation](http://cookiecutter-django.readth
 
 ## Deployment
 
-The following details how to deploy this application. The deployment guide is not yet available as this project is still in development.
+The following details how to deploy this application. The deployment guide is not yet available as this project is still in development. We are going to add more details
