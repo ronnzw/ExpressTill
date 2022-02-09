@@ -47,4 +47,8 @@ Moved to [Live reloading and SASS compilation](http://cookiecutter-django.readth
 
 ## Deployment
 
-The following details how to deploy this application. The deployment guide is not yet available as this project is still in development. We are going to add more details
+The following details how to deploy this application. The deployment guide is not yet available as this project is still in development. We are going to add more details. 
+
+Progress Update
+
+We have found the scanner application we want to use it in the web platform. It popping a seperate window which we don't want. i will continue to look at this.
