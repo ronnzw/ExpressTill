@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+<!-- Action buttons -->
+<div class="row">
+
+    <h1>Camera Section</h1>
+
+    <div class="row">
+
+
+
+        <div class="col-sm-12">
+          <a class="btn btn-primary" href="{% url 'scanner:video_feed' %}" role="button">Camera</a>
+          <!-- Your Stuff: Custom user template urls -->
+        </div>
+      
+      </div>
+</div>
+<!-- End Action buttons -->
+
+
+</div>
+{% endblock content %}

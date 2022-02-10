@@ -1,12 +1,12 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http.response import StreamingHttpResponse
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
 
 import cv2
-from pyzbar.pyzbar import decode
 
 User = get_user_model()
 
@@ -54,18 +54,28 @@ user_redirect_view = UserRedirectView.as_view()
 
 ## This part doesn't belong here
 
-class CaptureBarcode():
+
+class ScannerCamera(object):
     def __init__(self):
-        self.cap = cv2.VideoCapture(0)
-        self.cap.set(3, 640)
-        self.cap.set(4,480)
-        self.success, self.frame = cap.read()
-        return self.frame
+        self.camera = cv2.VideoCapture(0)
 
-    def get_frame(self.theframe):
+    def __off__(self):
+        self.camera.release()
 
-        for code in self.theframe:
+    def get_barcode(self):
+        success, image = self.camera.read()
+        ret, jpeg = cv2.imencode(".jpg",image)
+        return jpeg.tobytes()
             
 
+def gen(cam):
+    while True:
+        frame = ScannerCamera.get_barcode()
+        yield (b'--frame\r\n'
+            b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
-    
+def video_feed(request):
+    return StreamingHttpResponse(gen(ScannerCamera()),
+        content_type = 'multipart/x-mixed-replace; boundary=frame')
+
+video_feeds = video_feed

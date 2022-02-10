@@ -81,7 +81,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "project_express_till.users",
+    "project_express_till.users", #{{ cookiecutter.project_slug }}.users.apps.UsersAppConfig'
+    "project_express_till.scanner.apps.ScannerConfig",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

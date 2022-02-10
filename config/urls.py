@@ -17,6 +17,7 @@ urlpatterns = [
     # User management
     path("users/", include("project_express_till.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
+    path("scanner/", include("project_express_till.scanner.urls", namespace="scanner")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
