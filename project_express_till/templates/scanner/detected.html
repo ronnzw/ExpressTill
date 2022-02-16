@@ -66,13 +66,14 @@
         </div>
         <form>
           <div class="form-group">
-            <label id="lbl_BarcodeData" for="txt_BarcodeData">Barcode Data:</label>
+            <label id="lbl_BarcodeData" for="txt_BarcodeData">Product Data:</label>
             <textarea class="form-control" id="txt_BarcodeData" rows="3"></textarea>
-            <label id="lbl_LastModified">Last modified at:</label>
+            <label id="lbl_LastModified">Price is at:</label><br>
+            <label id="lbl_Quantity">Quantity:</label>
           </div>
         </form>
         <br />
-        <a id="btn_ReadQRCode" class="btn btn-primary" href="#">Read QR code data</a>
+        <a id="btn_ReadQRCode" class="btn btn-primary" href="#">Click here to scan</a>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -93,8 +94,12 @@
                     console.log(data);
                     $("#txt_BarcodeData").html(data.barcode_data);
                     $("#lbl_LastModified").html(
-                        "Last modified at: " + data.file_saved_at
+                        "Price is at: " + data.file_saved_at
                     );
+                    $("#lbl_Quantity").html(
+                        "Quantity: " + data.quantity
+                    );                   
+
                 } else {
                     console.log(data);
                     $("#txt_BarcodeData").html("");

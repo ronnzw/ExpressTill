@@ -1,5 +1,6 @@
 import os
 import time
+import numpy as np
 from datetime import datetime
 
 from django.http import JsonResponse, StreamingHttpResponse
@@ -20,27 +21,29 @@ def detect(request):
 
 # Camera feed
 def camera_feed(request):
+    productslist = {
+        '8886467117909':{'Product': 'Pringles', 'Price': '$6.50', 'Quantity': '100g'},
+        '6009691170287':{'Product': 'Dovi', 'Price': '$10.50', 'Quantity': '1 liter'},
+        '6007265001609':{'Product': 'Biscuits', 'Price': '$20.50', 'Quantity': '150g'}
+    }
     stream = CameraStreamingWidget()
     frames = stream.get_frames()
 
     # if ajax request is sent
     if request.is_ajax():
         print('Ajax request received')
-        time_stamp = str(datetime.now().strftime("%d-%m-%y"))
-        image = os.path.join(os.getcwd(), "media",
-                             "images", f"img_{time_stamp}.png")
-        if os.path.exists(image):
-            # open image if exists
-            im = Image.open(image)
-            # decode barcode
-            if decode(im):
-                for barcode in decode(im):
-                    barcode_data = (barcode.data).decode('utf-8')
-                    file_saved_at = time.ctime(os.path.getmtime(image))
-                    # return decoded barcode as json response
-                    return JsonResponse(data={'barcode_data': barcode_data, 'file_saved_at': file_saved_at})
-            else:
-                return JsonResponse(data={'barcode_data': None})
+        success, frame = stream.camera.read()
+        color_image = np.asanyarray(frame)
+        if decode(color_image):
+            for bar in decode(color_image):
+                bar_data = (bar.data).decode('utf-8')
+                if bar_data in productslist:
+                    product = productslist[bar_data]['Product']
+                    price = productslist[bar_data]['Price']
+                    quantity = productslist[bar_data]['Quantity']
+                    return JsonResponse(data={'barcode_data': product,'file_saved_at':price,'quantity':quantity})
+                else:
+                    return JsonResponse(data={'barcode_data': "This item is not in the list"})
         else:
             return JsonResponse(data={'barcode_data': None})
     # else stream the frames from camera feed
@@ -148,6 +151,36 @@ def barcodeDisplay(request):
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
     return streamValue
 
+
+
+
+
+
+
+
+    # if ajax request is sent
+    if request.is_ajax():
+        print('Ajax request received')
+        time_stamp = str(datetime.now().strftime("%d-%m-%y"))
+        image = os.path.join(os.getcwd(), "media",
+                             "images", f"img_{time_stamp}.png")
+        if os.path.exists(image):
+            # open image if exists
+            im = Image.open(image)
+            # decode barcode
+            if decode(im):
+                for barcode in decode(im):
+                    barcode_data = (barcode.data).decode('utf-8')
+                    file_saved_at = time.ctime(os.path.getmtime(image))
+                    # return decoded barcode as json response
+                    return JsonResponse(data={'barcode_data': barcode_data, 'file_saved_at': file_saved_at})
+            else:
+                return JsonResponse(data={'barcode_data': 'nothing is coming'})
+        else:
+            return JsonResponse(data={'barcode_data': 'second one here'})
+    # else stream the frames from camera feed
+    else:
+        return StreamingHttpResponse(frames, content_type='multipart/x-mixed-replace; boundary=frame')
 '''
 
 
