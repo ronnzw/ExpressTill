@@ -1,22 +1,148 @@
-pytz==2021.3  # https://github.com/stub42/pytz
-python-slugify==5.0.2  # https://github.com/un33k/python-slugify
-Pillow==9.0.0  # https://github.com/python-pillow/Pillow
-argon2-cffi==21.3.0  # https://github.com/hynek/argon2_cffi
-whitenoise==5.3.0  # https://github.com/evansd/whitenoise
-redis==4.1.1  # https://github.com/redis/redis-py
-hiredis==2.0.0  # https://github.com/redis/hiredis-py
-
-# Django
-# ------------------------------------------------------------------------------
-django==3.2.11  # pyup: < 4.0  # https://www.djangoproject.com/
-django-environ==0.8.1  # https://github.com/joke2k/django-environ
-django-model-utils==4.2.0  # https://github.com/jazzband/django-model-utils
-django-allauth==0.47.0  # https://github.com/pennersr/django-allauth
-django-crispy-forms==1.13.0  # https://github.com/django-crispy-forms/django-crispy-forms
-crispy-bootstrap5==0.6  # https://github.com/django-crispy-forms/crispy-bootstrap5
-django-redis==5.2.0  # https://github.com/jazzband/django-redis
-# Django REST Framework
-djangorestframework==3.13.1  # https://github.com/encode/django-rest-framework
-django-cors-headers==3.11.0 # https://github.com/adamchainz/django-cors-headers
-# DRF-spectacular for api documentation
+alabaster==0.7.12
+appnope==0.1.2
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+arrow==1.2.1
+asgiref==3.4.1
+astroid==2.9.3
+asttokens==2.0.5
+attrs==21.4.0
+Babel==2.9.1
+backcall==0.2.0
+binaryornot==0.4.4
+black==21.12b0
+certifi==2021.10.8
+cffi==1.15.0
+cfgv==3.3.1
+chardet==4.0.0
+charset-normalizer==2.0.10
+click==8.0.3
+colorama==0.4.4
+cookiecutter==1.7.3
+coreapi==2.3.3
+coreschema==0.0.4
+coverage==6.2
+crispy-bootstrap5==0.6
+cryptography==36.0.1
+decorator==5.1.1
+defusedxml==0.7.1
+Deprecated==1.2.13
+distlib==0.3.4
+Django==3.2.11
+django-allauth==0.47.0
+django-cors-headers==3.11.0
+django-coverage-plugin==2.0.2
+django-crispy-forms==1.13.0
+django-debug-toolbar==3.2.4
+django-environ==0.8.1
+django-extensions==3.1.5
+django-model-utils==4.2.0
+django-redis==5.2.0
+django-stubs==1.9.0
+django-stubs-ext==0.3.1
+djangorestframework==3.13.1
+djangorestframework-stubs==1.4.0
+docutils==0.17.1
 drf-spectacular==0.21.1
+executing==0.8.2
+factory-boy==3.2.1
+Faker==11.3.0
+filelock==3.4.2
+flake8==4.0.1
+flake8-isort==4.1.1
+hiredis==2.0.0
+identify==2.4.4
+idna==3.3
+imagesize==1.3.0
+importlib-metadata==4.10.1
+importlib-resources==5.4.0
+imutils==0.5.4
+inflection==0.5.1
+iniconfig==1.1.1
+ipdb==0.13.9
+ipython==8.0.1
+isort==5.10.1
+itypes==1.2.0
+jedi==0.18.1
+Jinja2==3.0.3
+jinja2-time==0.2.0
+jsonschema==4.4.0
+lazy-object-proxy==1.7.1
+livereload==2.6.3
+MarkupSafe==2.0.1
+matplotlib-inline==0.1.3
+mccabe==0.6.1
+mypy==0.931
+mypy-extensions==0.4.3
+nodeenv==1.6.0
+numpy==1.22.1
+oauthlib==3.1.1
+opencv-python==4.5.5.62
+packaging==21.3
+parso==0.8.3
+pathspec==0.9.0
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.0.0
+platformdirs==2.4.1
+pluggy==1.0.0
+poyo==0.5.0
+pre-commit==2.17.0
+prompt-toolkit==3.0.24
+psycopg2-binary==2.9.3
+ptyprocess==0.7.0
+pure-eval==0.2.1
+py==1.11.0
+pycodestyle==2.8.0
+pycparser==2.21
+pyflakes==2.4.0
+Pygments==2.11.2
+PyJWT==2.3.0
+pylint==2.12.2
+pylint-django==2.5.0
+pylint-plugin-utils==0.7
+pyparsing==3.0.7
+pyrsistent==0.18.1
+pytest==6.2.5
+pytest-django==4.5.2
+pytest-sugar==0.9.4
+python-dateutil==2.8.2
+python-slugify==5.0.2
+python3-openid==3.2.0
+pytz==2021.3
+PyYAML==6.0
+pyzbar==0.1.8
+redis==4.1.1
+requests==2.27.1
+requests-oauthlib==1.3.0
+six==1.16.0
+snowballstemmer==2.2.0
+Sphinx==4.4.0
+sphinx-autobuild==2021.3.14
+sphinxcontrib-applehelp==1.0.2
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-htmlhelp==2.0.0
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.5
+sqlparse==0.4.2
+stack-data==0.1.4
+termcolor==1.1.0
+testfixtures==6.18.3
+text-unidecode==1.3
+toml==0.10.2
+tomli==1.2.3
+tornado==6.1
+traitlets==5.1.1
+types-pytz==2021.3.4
+types-PyYAML==6.0.3
+typing_extensions==4.0.1
+uritemplate==4.1.1
+urllib3==1.26.8
+virtualenv==20.13.0
+watchdog==2.1.6
+wcwidth==0.2.5
+Werkzeug==2.0.2
+whitenoise==5.3.0
+wrapt==1.13.3
+zipp==3.7.0
